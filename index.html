@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="css/style.css">
 
   <!-- typekit font -->
-  <script type="text/javascript" src="js/vendor/nfj5apq.js"></script>
+  <script type="text/javascript" src="//use.typekit.net/nfj5apq.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
   <!-- modernizr -->
@@ -85,10 +85,23 @@
 
     </div>
 
+    <footer class="app-footer clearfix">
+      <p class="view-feed">
+        <a href="/xively-js/sample-app/home/">View Home <span>&rarr;</span></a>
+        <a href="/xively-js/"><span>&larr;</span> Back to xivelyJS</a>
+      </p>
+      <a class="xively-logo ir" href="https://xively.com/feeds/79650"><span class="visuallyhidden">Powered by xively</span></a>
+    </footer>
+
   </div>
   
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>  
-<script src="http://d23cj0cdvyoxg0.cloudfront.net/xivelyjs-1.0.4.min.js"></script>  
+  <!-- jquery from CDN - with fallback to local -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+
+  <!-- xivelyJS from CDN - with fallback to local -->
+  <script src="http://d23cj0cdvyoxg0.cloudfront.net/xivelyjs-1.0.4.min.js"></script>
+  <script>window.xively || document.write('<script src="js/vendor/xivelyjs-1.0.4.min.js"><\/script>')</script>
 
   <!-- UI js -->
   <script src="js/ui.js"></script>
