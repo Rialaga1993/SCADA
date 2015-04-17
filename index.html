@@ -53,6 +53,12 @@
       });
     });*/
     $(document).ready(function(){
+      
+      xively.setKey( "FOabrSzuD4RtR0kTLIuXrU7lB5YmVZ1R6ddnQlfkiH972wbj" );
+      var feedID        = 1197235218,          // Feed ID (the last number on the URL on the feed page on Xively)
+        datastreamID  = "0";       // Datastream ID
+        selector      = "#0";   // Your element on the page - takes any valid jQuery selector
+      
       $("#speed_ctrl").change(function(){
         $("#speed_val").html($(this).val());
         
