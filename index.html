@@ -39,7 +39,7 @@
 
 
   <script>
-    $(document).ready(function($) {
+    /* $(document).ready(function($) {
       xively.setKey( "FOabrSzuD4RtR0kTLIuXrU7lB5YmVZ1R6ddnQlfkiH972wbj" );
 
       // Replace with your own values
@@ -50,6 +50,14 @@
       // Get datastream data from Xively
       xively.datastream.get (feedID, datastreamID, function ( datastream ) {
         $(selector).html( datastream["current_value"] );
+      });
+    });*/
+    $(document).ready(function(){
+      $("#speed_ctrl").change(function(){
+        $("#speed_val").html($(this).val());
+        
+        direction = $("#dir .btn input[type='radio']:checked").val();
+        speed=$("#speed_ctrl").val();
       });
     });
   </script>
