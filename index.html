@@ -71,7 +71,8 @@
       xively.setKey( "FOabrSzuD4RtR0kTLIuXrU7lB5YmVZ1R6ddnQlfkiH972wbj" );
       var feedID        = 1197235218,          // Feed ID (the last number on the URL on the feed page on Xively)
         datastreamID  = "0";       // Datastream ID
-        selector      = "#0";   // Your element on the page - takes any valid jQuery selector
+        datastreamID1  = "1";       // Datastream ID
+
       
       $("#speed_ctrl").change(function(){
         $("#speed_val").html($(this).val());
@@ -84,6 +85,19 @@
           $("jumbotron").removeClass("loading").fadeOut(10);
         });
       });
+      
+      $("#speed_ctrl1").change(function(){
+        $("#speed_val1").html($(this).val());
+        
+        speed1=$("#speed_ctrl1").val();
+        $("jumbotron1").addClass("loading1").fadeIn(10);
+        
+        xively.datastream.update(feedID, datastreamID1,{ "current_value": speed1 },function() {
+          $("#speed_ctrl1").html(JSON.stringify(data, null, ' '));
+          $("jumbotron1").removeClass("loading1").fadeOut(10);
+        });
+      });
+      
     });
   </script>
   
