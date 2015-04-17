@@ -64,6 +64,11 @@
         
         direction = $("#dir .btn input[type='radio']:checked").val();
         speed=$("#speed_ctrl").val();
+        
+        xively.datastream.update(feedID, datastreamID, speed, function(data) {
+          $('#0').html(JSON.stringify(data, null, ' '));
+        });
+        
       });
     });
   </script>
