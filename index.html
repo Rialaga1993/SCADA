@@ -43,7 +43,7 @@
           selector      = "#myelement";   // Your element on the page - takes any valid jQuery selector
 
       // Get datastream data from Xively
-      xively.datastream.get (feedID, datastreamID, function ( datastream )) {
+      xively.datastream.get (feedID, datastreamID, function ( datastream ) {
         // WARNING: This code is only executed when we get a response back from Xively, it will likely execute after the rest your script
         // NOTE: The variable "datastream" will contain all the Datastream information as an object. The structure of Datastream objects can be found at: 
         // https://xively.com/dev/docs/api/quick_reference/api_resource_attributes/#datastream
@@ -53,7 +53,7 @@
         $(selector).html( datastream["current_value"] );
 
         // Getting realtime! The function associated with the subscribe method will be executed every time there is an update to the datastream
-        xively.datastream.subscribe( feedID, datastreamID, function ( event , datastream_updated )) {
+        xively.datastream.subscribe( feedID, datastreamID, function ( event , datastream_updated ) {
           // Display the current value from the updated datastream
           $(selector).html( datastream_updated["current_value"] );
         });
