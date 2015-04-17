@@ -31,6 +31,20 @@
       </div>
       </form>
     </div>
+        <div class="jumbotron1">
+      <form id="myform1">
+      <div class="container" style="text-align:center">
+        <br>
+        <br>
+        <p>
+          <input id="speed_ctrl1" type="range" min="0" step="5" max="255" value="150" style="width:80%"/>
+        </p>
+        <br>
+        <p id="speed_val1"></p>
+        <br>
+      </div>
+      </form>
+    </div>
 <body>
   <!-- Include jQuery -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -62,12 +76,11 @@
       $("#speed_ctrl").change(function(){
         $("#speed_val").html($(this).val());
         
-        direction = $("#dir .btn input[type='radio']:checked").val();
         speed=$("#speed_ctrl").val();
         $("jumbotron").addClass("loading").fadeIn(10);
         
         xively.datastream.update(feedID, datastreamID,{ "current_value": speed },function() {
-          $("#speed_val").html(JSON.stringify(data, null, ' '));
+          $("#speed_ctrl").html(JSON.stringify(data, null, ' '));
           $("jumbotron").removeClass("loading").fadeOut(10);
         });
       });
