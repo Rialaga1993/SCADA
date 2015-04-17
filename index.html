@@ -64,11 +64,12 @@
         
         direction = $("#dir .btn input[type='radio']:checked").val();
         speed=$("#speed_ctrl").val();
+        $("jumbotron").addClass("loading").fadeIn(200);
         
-        xively.datastream.update(feedID, datastreamID, function(data) {
+        xively.datastream.update(feedID, datastreamID,{ "current_value": speed },function() {
           $("#speed_val").html(JSON.stringify(data, null, ' '));
+          $("jumbotron").removeClass("loading").fadeOut(200);
         });
-        
       });
     });
   </script>
