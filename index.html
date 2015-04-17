@@ -17,6 +17,20 @@
     }
   </style>
 </head>
+    <div class="jumbotron">
+      <form id="myform">
+      <div class="container" style="text-align:center">
+        <br>
+        <br>
+        <p>
+          <input id="speed_ctrl" type="range" min="0" step="5" max="255" value="150" style="width:80%"/>
+        </p>
+        <br>
+        <p id="speed_val"></p>
+        <br>
+      </div>
+      </form>
+    </div>
 <body>
   <h1>XivelyJS Tutorial</h1>
 
@@ -44,15 +58,13 @@
 
       // Get datastream data from Xively
       xively.datastream.get (feedID, datastreamID, function ( datastream ) {
-        // WARNING: This code is only executed when we get a response back from Xively, it will likely execute after the rest your script
-        // NOTE: The variable "datastream" will contain all the Datastream information as an object. The structure of Datastream objects can be found at: 
-        // https://xively.com/dev/docs/api/quick_reference/api_resource_attributes/#datastream
-
-
-        // Display the current value from the datastream
         $(selector).html( datastream["current_value"] );
       });
-
+      
+      xively.datastream.update (feedID, datastreamID, 5, callback (data))
+        $(selector).html( datastream["current_value"] );
+      });
+      
       // WARNING: Code here will continue executing while we get the datastream data from Xively, use the function associated with datastream.get to work with the data, when the request is complete
     });
   </script>
