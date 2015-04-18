@@ -80,25 +80,25 @@
         $("#speed_val").html($(this).val());
         
         speed=$("#speed_ctrl").val();
-      });
-      
         $("jumbotron").addClass("loading").fadeIn(10);
         xively.datastream.update(feedID, datastreamID,{ "current_value": speed },function() {
           $("#speed_ctrl").html(JSON.stringify(data, null, ' '));
           $("jumbotron").removeClass("loading").fadeOut(10);
-        });      
+        });         
+      });
       
       $("#speed_ctrl1").change(function(){
         $("#speed_val1").html($(this).val());
         
         speed1=$("#speed_ctrl1").val();
-      });
-      
-        $("jumbotron1").addClass("loading1").fadeIn(10);
+        $("jumbotron1").addClass("loading1").fadeIn(1);
+        
         xively.datastream.update(feedID, datastreamID1,{ "current_value": speed1 },function() {
           $("#speed_ctrl1").html(JSON.stringify(data, null, ' '));
-          $("jumbotron1").removeClass("loading1").fadeOut(10);
-        });      
+          $("jumbotron1").removeClass("loading1").fadeOut(1);
+        });
+        
+      });
       
     });
   </script>
