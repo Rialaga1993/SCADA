@@ -19,11 +19,14 @@
 </head>
     <div class="jumbotron">
       <form id="myform">
-      <div style="display:inline;width:200px;height:200px;">
-        <label>LED1</label>
-        <canvas width="200" height="200px"></canvas>
-        <input class="knob" data-width="200" data-min="-100" data-displayprevious="true" value="44" style="width: 104px; height: 66px; position: absolute; vertical-align: middle; margin-top: 66px; margin-left: -152px; border: 0px; font-weight: bold; font-style: normal; font-variant: normal; font-stretch: normal; font-size: 40px; line-height: normal; font-family: Arial; text-align: center; color: rgb(135, 206, 235); padding: 0px; -webkit-appearance: none; background: none;">
-      </div>
+        <div class="demo">
+            <p>&#215; Disable display input</p>
+            <pre>
+data-width="100"
+data-displayInput=false
+            </pre>
+            <input class="knob" data-width="100" data-displayInput=false value="35">
+        </div>
       <div class="container" style="text-align:center">
         <label>VIDEO</label>
         <br>
