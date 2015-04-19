@@ -23,7 +23,7 @@
     <div class="jumbotron">
       <form id="myform">
       <div class="demo">
-        <input class="knob" data-width="200" data-min="-100" data-displayPrevious=true value="44">
+        <input type="text" value="90" class="dial" id='dial'>
       </div>
       <div class="container" style="text-align:center">
         <label>VIDEO</label>
@@ -79,7 +79,23 @@
         datastreamID  = "0";       // Datastream ID
         datastreamID1  = "1";       // Datastream ID
 
-      
+      var dial = $(".dial");
+        dial.knob({
+          readOnly: true
+         ,fgColor: "#00ABC6"
+         ,bgColor: "#f3f3f3"
+         ,inputColor: "#00ABC6"
+         ,thickness: 0.3
+      });
+
+      $('#anim').on( 'click',function(){
+        var to = dial.val();
+        for( v=0; v<=to; v++ ){
+          dial.val( v ).trigger( 'change' );
+          console.log( v );
+          setTimeout(100);
+        }
+      });
       $("#speed_ctrl").change(function(){
         $("#speed_val").html($(this).val());
         
