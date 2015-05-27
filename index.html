@@ -82,6 +82,17 @@
       });
       
     });*/
+      $("#lights").on("change",function(){    
+            if ( this.checked ) {
+              xively.datastream.update(feedID, datastreamID, { "current_value": 1 }, function(){
+                $("ui-toggle-slide clearfix").removeClass("loading").fadeOut(1);
+              });
+            }
+            else {
+              xively.datastream.update(feedID, datastreamID, { "current_value": 0 }, function(){
+                $("ui-toggle-slide clearfix").removeClass("loading").fadeOut(1);
+              });
+            });    
   </script>
 </body>
 </html
