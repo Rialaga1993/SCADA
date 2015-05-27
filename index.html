@@ -41,6 +41,7 @@
             <div class="field clearfix">
               <label class="input-label icon-lamp" for="lights">MANDO PRINCIPAL</label>
               <input id="lights" class="input js-lights hidden" type="checkbox">
+              <p id="speed_val1"></p>
               <div class="js-lights-toggle ui-toggle" data-toggle=".js-lights">
                 <span class="ui-toggle-slide clearfix">
                   <strong class="ui-toggle-on">ON</strong>
@@ -58,19 +59,33 @@
 
 
   </div>
-  
-  <!-- jquery from CDN - with fallback to local -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
-
-  <!-- xivelyJS from CDN - with fallback to local -->
   <script src="http://d23cj0cdvyoxg0.cloudfront.net/xivelyjs-1.0.4.min.js"></script>
   <script>window.xively || document.write('<script src="js/vendor/xivelyjs-1.0.4.min.js"><\/script>')</script>
-
-  <!-- UI js -->
   <script src="js/ui.js"></script>
-
-  <!-- the main script, where the magic happens -->
   <script src="js/script.js"></script>
+  <script>
+    $(document).ready(function(){
+      
+      xively.setKey( "FOabrSzuD4RtR0kTLIuXrU7lB5YmVZ1R6ddnQlfkiH972wbj" );
+      var feedID        = 1197235218,          // Feed ID (the last number on the URL on the feed page on Xively)
+        datastreamID1  = "1";       // Datastream ID
+      
+      $("#lights").change(function(){
+        $("#speed_val1").html($(this).val());
+        
+        speed1=$("#lights").val();
+        $("field clearfix").addClass("loading1").fadeIn(1);
+        
+        xively.datastream.update(feedID, datastreamID1,{ "current_value": speed1 },function() {
+          $("#lights").html(JSON.stringify(data, null, ' '));
+          $("field clearfix").removeClass("loading1").fadeOut(1);
+        });
+        
+      });
+      
+    });
+  </script>
 </body>
 </html
