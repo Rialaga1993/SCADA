@@ -74,7 +74,9 @@
       
       $("#lights").change(function(){
         $("#speed_val1").html($(this).val());
-        
+        if ( speed_val1 === "1" ) {
+        handleToggle( speed_val1, value );
+        }
         speed1=$("#lights").val();
         $("ui-toggle-slide clearfix").addClass("loading1").fadeIn(1);
         
