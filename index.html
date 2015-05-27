@@ -72,7 +72,6 @@
         datastreamID1  = "1";       // Datastream ID
 
       $("#lights").click(function(){
-        $("#val").html($(this).val());
         speed1=$("#lights").val();
         $("ui-toggle-slide clearfix").addClass("loading1").fadeIn(1);
         xively.datastream.update(feedID, datastreamID1,{ "current_value": speed1 },function() {
