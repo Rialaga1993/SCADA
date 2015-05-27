@@ -41,7 +41,6 @@
             <div class="field clearfix">
               <label class="input-label icon-lamp" for="lights">MANDO PRINCIPAL</label>
               <input id="lights" class="input js-lights hidden" type="checkbox" value="0">
-              <id="speed_val1">
               <div class="js-lights-toggle ui-toggle" data-toggle=".js-lights">
                 <span class="ui-toggle-slide clearfix">
                   <strong class="ui-toggle-on">ON</strong>
@@ -71,13 +70,12 @@
       xively.setKey( "FOabrSzuD4RtR0kTLIuXrU7lB5YmVZ1R6ddnQlfkiH972wbj" );
       var feedID        = 1197235218,          // Feed ID (the last number on the URL on the feed page on Xively)
         datastreamID1  = "1";       // Datastream ID
-      //$('#condiciones:checked').val()
-      $("#lights").change(function(){
-        $("#speed_val1").html($(this).val());
-        speed1=$("#lights").val();
-        if(speed1 === "0"){
-          $("speed1").toggle();
-        }
+
+      $("#lights").click(function(){
+        //speed1=$("#lights").val();
+        $("spped1").toggle(1, function(){
+            alert("ACTIVADO");
+        });
         $("ui-toggle-slide clearfix").addClass("loading1").fadeIn(1);
         xively.datastream.update(feedID, datastreamID1,{ "current_value": speed1 },function() {
           $("#lights").html(JSON.stringify(data, null, ' '));
