@@ -73,10 +73,10 @@
 
       $("#lights").click(function(){
         speed1=$("#lights").val();
-        $("input js-lights hidden").addClass("loading1").fadeIn(1);
+        $("ui-toggle-slide clearfix").addClass("loading1").fadeIn(1);
         xively.datastream.update(feedID, datastreamID1,{ "current_value": speed1 },function() {
           $("#lights").html(JSON.stringify(data, null, ' '));
-          $("input js-lights hidden").removeClass("loading1").fadeOut(1);
+          $("ui-toggle-slide clearfix").removeClass("loading1").fadeOut(1);
         });
         
       });
