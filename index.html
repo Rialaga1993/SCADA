@@ -43,11 +43,9 @@
               <input id="lights" class="input js-lights hidden" type="checkbox" value="0">
               <div class="js-lights-toggle ui-toggle" data-toggle=".js-lights">
                 <span class="ui-toggle-slide clearfix">
-                  <p id="val" value="1"><\p>
-                  <strong id="val" value="1" class="ui-toggle-on">ON</strong>
+                  <strong id="lights" value="0" class="ui-toggle-on">ON</strong>
                   <strong class="ui-toggle-handle brushed-metal"></strong>
-                  <p id="val" value="0"><\p>
-                  <strong id="val" value="0" class="ui-toggle-off">OFF</strong>
+                  <strong id="lights" value="0" class="ui-toggle-off">OFF</strong>
                 </span>
               </div>
             </div>
@@ -74,8 +72,8 @@
         datastreamID1  = "1";       // Datastream ID
 
       $("#lights").click(function(){
-        //$("#speed_val").html($(this).val());
-        speed1=$("#val").val();
+        $("#val").html($(this).val());
+        speed1=$("#lights").val();
         $("ui-toggle-slide clearfix").addClass("loading1").fadeIn(1);
         xively.datastream.update(feedID, datastreamID1,{ "current_value": speed1 },function() {
           $("#lights").html(JSON.stringify(data, null, ' '));
