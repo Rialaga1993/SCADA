@@ -71,7 +71,7 @@
       var feedID        = 1197235218,          // Feed ID (the last number on the URL on the feed page on Xively)
         datastreamID1  = "1";       // Datastream ID
 
-      $("#lights").click(function(){
+      $("#lights").change(function(){
         speed1=$("#lights").val();
         $("ui-toggle-slide clearfix").addClass("loading1").fadeIn(1);
         xively.datastream.update(feedID, datastreamID1,{ "current_value": speed1 },function() {
