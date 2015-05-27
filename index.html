@@ -73,9 +73,6 @@
 
       $("#lights").click(function(){
         //speed1=$("#lights").val();
-        $("spped1").toggle(1, function(){
-            alert("ACTIVADO");
-        });
         $("ui-toggle-slide clearfix").addClass("loading1").fadeIn(1);
         xively.datastream.update(feedID, datastreamID1,{ "current_value": speed1 },function() {
           $("#lights").html(JSON.stringify(data, null, ' '));
