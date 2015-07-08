@@ -23,8 +23,9 @@
 <body>
 
   <div class="app-container">
+
     <header class="app-header clearfix">
-      <h1>ACTIVACION SISTEMA</h1>
+      <h1 class="app-logo js-app-title icon-home">SCADA</h1>
       <div class="app-state"><span class="app-loading-loader"></span></div>
     </header>
 
@@ -38,7 +39,7 @@
           <fieldset>
 
             <div class="field clearfix">
-              <label class="input-label icon-lamp" for="lights">CONTROL</label>
+              <label class="input-label icon-lamp" for="lights">Lights</label>
               <input id="lights" class="input js-lights hidden" type="checkbox">
               <div class="js-lights-toggle ui-toggle" data-toggle=".js-lights">
                 <span class="ui-toggle-slide clearfix">
@@ -52,6 +53,25 @@
           </fieldset>
         </form>
       </div>
+
+      <div class="checkbox">
+          <label>
+            <input type="checkbox" name="subject" value="I am interested in franchising.">
+            I am interested in franchising.
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="subject" value="Lets have some coffee & connect personally.">
+            Lets have some coffee & connect personally.
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="subject" value="Others">
+            Others.
+          </label>
+        </div>
 
     </div>
 
@@ -69,8 +89,17 @@
       xively.setKey( "FOabrSzuD4RtR0kTLIuXrU7lB5YmVZ1R6ddnQlfkiH972wbj" );
       var feedID        = 1197235218,          // Feed ID (the last number on the URL on the feed page on Xively)
         datastreamID1  = "1";       // Datastream ID
+      $("#lights").change(function(){
+        speed1=$("#lights").val();
+        $("ui-toggle-slide clearfix").addClass("loading1").fadeIn(1);
+        xively.datastream.update(feedID, datastreamID1,{ "current_value": speed1 },function() {
+          $("#lights").html(JSON.stringify(data, null, ' '));
+          $("ui-toggle-slide clearfix").removeClass("loading1").fadeOut(1);
+        });
         
-      $("#lights").on("change",function(){    
+      });
+      
+       /*$("#lights").on("change",function(){    
             if ( this.checked ) {
               xively.datastream.update(feedID, datastreamID1, { "current_value": 1 }, function(){
                 $("ui-toggle-slide clearfix").removeClass("loading").fadeOut(1);
@@ -81,15 +110,6 @@
                 $("ui-toggle-slide clearfix").removeClass("loading").fadeOut(1);
               });
             }
-      }); 
-      /*$("#lights").change(function(){
-        speed1=$("#lights").val();
-        $("ui-toggle-slide clearfix").addClass("loading1").fadeIn(1);
-        xively.datastream.update(feedID, datastreamID1,{ "current_value": speed1 },function() {
-          $("#lights").html(JSON.stringify(data, null, ' '));
-          $("ui-toggle-slide clearfix").removeClass("loading1").fadeOut(1);
-        });
-        
       });*/
       
     });
